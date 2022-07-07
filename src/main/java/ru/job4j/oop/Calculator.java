@@ -33,8 +33,4 @@ public class Calculator {
         System.out.println(calculator.divide(5));
         System.out.println(minus(20));
     }
-
-
-
-
 }
