@@ -16,7 +16,6 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
-
     @Test
     public void whenTestFindById() {
         Tracker tracker = new Tracker();
@@ -25,7 +24,6 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
-
     @Test
     public void whenTestFindAll() {
         Tracker tracker = new Tracker();
@@ -36,7 +34,6 @@ public class TrackerTest {
         Item result = tracker.findAll()[0];
         assertThat(result.getName(), is(first.getName()));
     }
-
     @Test
     public void whenTestFindByNameCheckArrayLength() {
         Tracker tracker = new Tracker();
@@ -50,7 +47,6 @@ public class TrackerTest {
         Item[] result = tracker.findByName(first.getName());
         assertThat(result.length, is(3));
     }
-
     @Test
     public void whenTestFindByNameCheckSecondItemName() {
         Tracker tracker = new Tracker();
@@ -64,7 +60,6 @@ public class TrackerTest {
         Item[] result = tracker.findByName(second.getName());
         assertThat(result[1].getName(), is(second.getName()));
     }
-
     @Test
     public void whenReplace() {
         Tracker tracker = new Tracker();
@@ -77,7 +72,6 @@ public class TrackerTest {
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
-
     @Test
     public void whenDelete() {
         Tracker tracker = new Tracker();
