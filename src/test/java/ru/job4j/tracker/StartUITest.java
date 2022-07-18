@@ -88,7 +88,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenShowAllTestOutputIsSuccessfully(){
+    public void whenShowAllTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
@@ -121,9 +121,8 @@ public class StartUITest {
         ));
     }
 
-
     @Test
-    public void whenFindByIdTestOutputIsSuccessfully(){
+    public void whenFindByIdTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
@@ -153,7 +152,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindByNameTestOutputIsSuccessfully(){
+    public void whenFindByNameTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
