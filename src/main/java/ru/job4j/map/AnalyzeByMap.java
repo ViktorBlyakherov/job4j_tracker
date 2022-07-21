@@ -35,6 +35,7 @@ public class AnalyzeByMap {
             for (Subject subject : pupil.subjects()) {
                 sum = sum + subject.score();
             }
+
             labels.add(new Label(pupil.name(), sum / pupil.subjects().size()));
         }
         return labels;
