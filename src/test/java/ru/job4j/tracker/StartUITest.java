@@ -94,9 +94,6 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss", Locale.ENGLISH);
-        String oneCreated = one.getCreated().format(formatter);
-        String twoCreated = one.getCreated().format(formatter);
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
@@ -111,10 +108,8 @@ public class StartUITest {
                         + "0. Show all item" + ln
                         + "1. Exit" + ln
                         + "=== Show all items ===" + ln
-                        + "Item{id=" + one.getId() + ", name='" + one.getName() + "', "
-                        + "created=" + oneCreated + "}" + ln
-                        + "Item{id=" + two.getId() + ", name='" + two.getName() + "', "
-                        + "created=" + twoCreated + "}" + ln
+                        + one + ln
+                        + two + ln
                         + "Menu:" + ln
                         + "0. Show all item" + ln
                         + "1. Exit" + ln
