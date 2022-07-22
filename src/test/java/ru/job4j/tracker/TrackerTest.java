@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -90,5 +91,41 @@ public class TrackerTest {
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
+    }
+
+    @Test
+    public void whenItemsSortAsc() {
+        List<Item> input = new ArrayList<>();
+        Item item1 = new Item("aaa");
+        Item item2 = new Item("bbb");
+        Item item3 = new Item("ccc");
+        input.add(item1);
+        input.add(item3);
+        input.add(item2);
+        input.sort(new ItemAscByName());
+        List<Item> expected = new ArrayList<>();
+        expected.add(item1);
+        expected.add(item2);
+        expected.add(item3);
+        assertThat(input, is(expected));
+
+    }
+
+    @Test
+    public void whenItemsSortDesc() {
+        List<Item> input = new ArrayList<>();
+        Item item1 = new Item("aaa");
+        Item item2 = new Item("bbb");
+        Item item3 = new Item("ccc");
+        input.add(item1);
+        input.add(item3);
+        input.add(item2);
+        input.sort(new ItemDescByName());
+        List<Item> expected = new ArrayList<>();
+        expected.add(item3);
+        expected.add(item2);
+        expected.add(item1);
+        assertThat(input, is(expected));
+
     }
 }
