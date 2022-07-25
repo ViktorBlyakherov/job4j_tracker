@@ -44,7 +44,7 @@ public class BankService {
     /**
      * Метод поиска пользователя по паспорту.
      * Принимает на вход номер паспорта.
-     * @param passport
+     * @param passport номер паспорта по которому осуществляется поиск пользователя
      * @return возвращает объект User найденный по номеру паспорта. Если пользователь не найден возвращает null
      */
     public User findByPassport(String passport) {
