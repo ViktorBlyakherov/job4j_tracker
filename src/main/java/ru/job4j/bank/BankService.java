@@ -64,12 +64,15 @@ public class BankService {
      * @return возвращает счет пользователя, если пользователь или счет не найдены возвращает null
      */
     public Account findByRequisite(String passport, String requisite) {
-        List<Account> accounts = users.get(findByPassport(passport));
-        if (accounts != null) {
-            return accounts.stream()
-                    .filter(a -> requisite.equals(a.getRequisite()))
-                    .findFirst()
-                    .orElse(null);
+        var user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            if (accounts != null) {
+                return accounts.stream()
+                        .filter(a -> requisite.equals(a.getRequisite()))
+                        .findFirst()
+                        .orElse(null);
+            }
         }
         return null;
     }
