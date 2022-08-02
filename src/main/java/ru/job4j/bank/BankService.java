@@ -66,13 +66,10 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         var user = findByPassport(passport);
         if (user != null) {
-            List<Account> accounts = users.get(user);
-            if (accounts != null) {
-                return accounts.stream()
-                        .filter(a -> requisite.equals(a.getRequisite()))
-                        .findFirst()
-                        .orElse(null);
-            }
+            return users.get(user).stream()
+                    .filter(a -> requisite.equals(a.getRequisite()))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
