@@ -92,8 +92,7 @@ public class SqlTracker implements Store, AutoCloseable {
 
         try (PreparedStatement statement =
                      cn.prepareStatement("select * from items")) {
-            statement.execute();
-            ResultSet resultSet = statement.getResultSet();
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Item tmp = getItem(resultSet);
                 rsl.add(tmp);
@@ -111,8 +110,7 @@ public class SqlTracker implements Store, AutoCloseable {
         try (PreparedStatement statement =
                      cn.prepareStatement("select * from items where name like ?;")) {
             statement.setString(1, "%" + key + "%");
-            statement.execute();
-            ResultSet resultSet = statement.getResultSet();
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Item tmp = getItem(resultSet);
                 rsl.add(tmp);
@@ -130,8 +128,7 @@ public class SqlTracker implements Store, AutoCloseable {
         try (PreparedStatement statement =
                      cn.prepareStatement("select * from items where id=?;")) {
             statement.setInt(1, id);
-            statement.execute();
-            ResultSet resultSet = statement.getResultSet();
+            ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 rsl = getItem(resultSet);
             }
